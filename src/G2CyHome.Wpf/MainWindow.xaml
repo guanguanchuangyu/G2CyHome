@@ -14,7 +14,7 @@
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox BorderThickness="0" Background="{DynamicResource RegionBrush}" BitmapEffect="{DynamicResource BorderBitmapEffect}" Style="{DynamicResource ListBoxCustom}"></ListBox>
+        <ListBox BorderThickness="0" Background="{DynamicResource RegionBrush}" Effect="{DynamicResource EffectShadow3}" Style="{DynamicResource ListBoxCustom}"></ListBox>
         <Border Grid.Column="1" Padding="18">
             <DockPanel>
                 <Border Background="{DynamicResource RegionBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10">

@@ -11,7 +11,6 @@
                 <ResourceDictionary Source="pack://application:,,,/G2CyHome.Wpf;component/Resources/Themes/Basic/Geometries.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DropShadowBitmapEffect x:Key="BorderBitmapEffect" Color="{DynamicResource BackgroundColor}" Direction="300" Opacity=".4"></DropShadowBitmapEffect>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
