@@ -1,0 +1,26 @@
+﻿<Project>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>ggcy</Authors>
+    <Company>北京云联网信科技有限公司</Company>
+    <Copyright>Copyright (c) 2019-2023 YNKSOFT. All rights reserved.</Copyright>
+    <!--<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/dotnetcore/osharp</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/dotnetcore/osharp/releases</PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/dotnetcore/osharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>osharp osharpns</PackageTags>-->
+    <NeutralLanguage>zh-CHS</NeutralLanguage>
+    <!--<SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)OSharp.Keys.snk</AssemblyOriginatorKeyFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" Visible="false" PackagePath=""/>
+  </ItemGroup>
+</Project>

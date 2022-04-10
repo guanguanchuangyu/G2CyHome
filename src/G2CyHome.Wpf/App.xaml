@@ -1,0 +1,17 @@
+﻿<Application x:Class="G2CyHome.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:G2CyHome.Wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>-->
+                <ResourceDictionary Source="pack://application:,,,/G2CyHome.Wpf;component/Resources/Themes/SkinLocal.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/G2CyHome.Wpf;component/Resources/Themes/Basic/Geometries.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DropShadowBitmapEffect x:Key="BorderBitmapEffect" Color="{DynamicResource BackgroundColor}" Direction="300" Opacity=".4"></DropShadowBitmapEffect>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="../../build/public.props" />
+  <Import Project="../../build/version.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>G2CyHome.Web</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Startups\PostgreSqlDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\SqliteDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\SqlServerDefaultDbContextMigrationPack.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="NugetTool" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>-->
+    <PackageReference Include="G2Cy.Extensions" Version="1.0.0" />
+    <PackageReference Include="OSharpNS.EntityFrameworkCore.MySql" Version="5.0.4" />
+    <PackageReference Include="OSharpNS.Log4Net" Version="5.0.4" />
+    <PackageReference Include="OSharpNS.MiniProfiler" Version="5.0.4" />
+    <PackageReference Include="OSharpNS.Redis" Version="5.0.4" />
+    <PackageReference Include="OSharpNS.Hangfire" Version="5.0.4" />
+	  <!--<PackageReference Include="Lazy.Captcha.Core" Version="1.1.1" />-->
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\G2CyHome.Core\G2CyHome.Core.csproj" />
+    <ProjectReference Include="..\G2CyHome.Server\G2CyHome.Server.csproj" />
+  </ItemGroup>
+</Project>

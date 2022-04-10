@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="../../build/public.props" />
+  <Import Project="../../build/version.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>G2CyHome.Server</PackageId>
+    <OutputType>Library</OutputType>
+    <Summary>OSharp框架非业务WebAPI实现</Summary>
+    <Description>OSharp框架非业务WebAPI实现，封装框架非业务如认证，权限，系统，消息等模块的WebApi实现</Description>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\G2CyHome.EntityConfiguration\G2CyHome.EntityConfiguration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Extensions.Hosting" Version="2.2.0" />
+	<PackageReference Include="Lazy.Captcha.Core" Version="1.1.1" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="[5.0.2,6.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="NugetTool" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>-->
+  </ItemGroup>
+</Project>
