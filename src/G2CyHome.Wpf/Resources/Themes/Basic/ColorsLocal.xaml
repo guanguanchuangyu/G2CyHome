@@ -25,14 +25,14 @@
     <Color x:Key="PrimaryTextColor">#fefeff</Color>
     <Color x:Key="SecondaryTextColor">#bfbcbf</Color>
     <Color x:Key="ThirdlyTextColor">#bdbdbd</Color>
-    <Color x:Key="ReverseTextColor">#373e2c</Color>
+    <Color x:Key="ReverseTextColor">#8099ff</Color>
     <Color x:Key="TextIconColor">White</Color>
 
     <Color x:Key="BorderColor">#2d292f</Color>
     <Color x:Key="SecondaryBorderColor">#e0e0e0</Color>
     <Color x:Key="BackgroundColor">#120f12</Color>
-    <Color x:Key="RegionColor">#ffffff</Color>
-    <Color x:Key="SecondaryRegionColor">#f9f9f9</Color>
+    <Color x:Key="RegionColor">#2B2A30</Color>
+    <Color x:Key="SecondaryRegionColor">#393c49</Color>
     <Color x:Key="ThirdlyRegionColor">White</Color>
     <Color x:Key="TitleColor">#326cf3</Color>
     <Color x:Key="SecondaryTitleColor">#326cf3</Color>

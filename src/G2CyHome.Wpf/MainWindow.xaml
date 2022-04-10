@@ -6,35 +6,35 @@
         xmlns:hc="https://handyorg.github.io/handycontrol" 
         xmlns:local="clr-namespace:G2CyHome.Wpf.Views"
         mc:Ignorable="d"
-        NonClientAreaBackground="{StaticResource BackgroundBrush}"
+        NonClientAreaBackground="{DynamicResource BackgroundBrush}"
         Title="G2CyHome" 
-        Height="450" Width="800" FontSize="14">
+        d:Height="800" d:Width="1000" FontSize="14">
     <Grid SnapsToDevicePixels="True" Background="{DynamicResource DarkDefaultBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox BorderThickness="0" Background="{DynamicResource BorderBrush}" BitmapEffect="{DynamicResource BorderBitmapEffect}" Style="{DynamicResource ListBoxCustom}"></ListBox>
+        <ListBox BorderThickness="0" Background="{DynamicResource RegionBrush}" BitmapEffect="{DynamicResource BorderBitmapEffect}" Style="{DynamicResource ListBoxCustom}"></ListBox>
         <Border Grid.Column="1" Padding="18">
             <DockPanel>
-                <Border Background="{DynamicResource BorderBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10">
+                <Border Background="{DynamicResource RegionBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10">
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
                             <TextBlock Margin="0,0,0,10" Name="ContentileName" Text="设备列表" FontSize="18" Foreground="{DynamicResource PrimaryTextBrush}" FontWeight="Bold" VerticalAlignment="Bottom"></TextBlock>
                             <Rectangle HorizontalAlignment="Left" Height="4" Fill="{DynamicResource PrimaryTextBrush}" Opacity=".6" Width="{Binding ElementName=ContentileName,Path=ActualWidth}"></Rectangle>
                         </StackPanel>
                         <TextBlock DockPanel.Dock="Left" FontSize="12" Text="（连接网络设备可以在此处查看）" Foreground="{DynamicResource PrimaryTextBrush}" Opacity=".6" VerticalAlignment="Center" Margin="{Binding ElementName=ContentileName,Path=Margin}"></TextBlock>
-                        <Button FocusVisualStyle="{x:Null}" DockPanel.Dock="Right" Style="{DynamicResource ButtonIcon}" hc:BorderElement.CornerRadius="{DynamicResource DefaultCornerRadius}" hc:IconElement.Geometry="{DynamicResource AddGeometry}" HorizontalAlignment="Right" Background="{DynamicResource InfoBrush}"></Button>
+                        <Button FocusVisualStyle="{x:Null}" DockPanel.Dock="Right" Foreground="{DynamicResource ReverseTextBrush}" Style="{DynamicResource ButtonIcon}" hc:BorderElement.CornerRadius="{DynamicResource DefaultCornerRadius}" hc:IconElement.Geometry="{DynamicResource AddGeometry}" HorizontalAlignment="Right" Background="{DynamicResource RegionBrush}"></Button>
                     </DockPanel>
                 </Border>
-                <Border Background="{DynamicResource BorderBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10" Margin="0,10,0,0">
-                    <hc:WaterfallPanel AutoGroup="True" DesiredLength="220">
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A101" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A102" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A103" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 烟感 ·" Descript="烟感设备A201" Geometry="{DynamicResource SmokeGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 火感 ·" Descript="火感设备A301" Geometry="{DynamicResource FireGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 摄像头 ·" Descript="摄像头V101" Geometry="{DynamicResource ViewGeometry}"></local:DevicePlug>
+                <Border Background="{DynamicResource RegionBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10" Margin="0,10,0,0">
+                    <hc:WaterfallPanel AutoGroup="True" DesiredLength="200">
+                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A101" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A102" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A103" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 烟感 ·" Descript="烟感设备A201" MaxWidth="200" Height="200" Geometry="{DynamicResource SmokeGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 火感 ·" Descript="火感设备A301" MaxWidth="200" Height="200" Geometry="{DynamicResource FireGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 摄像头 ·" Descript="摄像头V101" MaxWidth="200" Height="200" Geometry="{DynamicResource ViewGeometry}"></local:DevicePlug>
                     </hc:WaterfallPanel>
                 </Border>
             </DockPanel>
