@@ -62,5 +62,17 @@ namespace G2CyHome.Wpf.Views
             DependencyProperty.Register("Geometry", typeof(Geometry), typeof(DevicePlug), new PropertyMetadata(default(Geometry)));
 
 
+
+        public SolidColorBrush IconBrush
+        {
+            get { return (SolidColorBrush)GetValue(IconBrushProperty); }
+            set { SetValue(IconBrushProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IconBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconBrushProperty =
+            DependencyProperty.Register("IconBrush", typeof(SolidColorBrush), typeof(DevicePlug), new PropertyMetadata(default(SolidColorBrush)));
+
+
     }
 }

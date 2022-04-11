@@ -17,7 +17,7 @@
             <Path HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Margin="5" Stretch="Uniform" Fill="{DynamicResource ReverseTextBrush}" Data="{StaticResource SettingGeometry}">
             </Path>
         </Grid>
-        <Path Stretch="Uniform" Fill="{DynamicResource ReverseTextBrush}" Margin="30" Data="{Binding ElementName=Parent,Path=Geometry}">
+        <Path Stretch="Uniform" Fill="{Binding ElementName=Parent,Path=IconBrush}" Margin="30" Data="{Binding ElementName=Parent,Path=Geometry}">
         </Path>
     </DockPanel>
 </Border>

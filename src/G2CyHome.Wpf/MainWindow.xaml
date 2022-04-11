@@ -11,10 +11,24 @@
         d:Height="800" d:Width="1000" FontSize="14">
     <Grid SnapsToDevicePixels="True" Background="{DynamicResource DarkDefaultBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox BorderThickness="0" Background="{DynamicResource RegionBrush}" Effect="{DynamicResource EffectShadow3}" Style="{DynamicResource ListBoxCustom}"></ListBox>
+        <ListBox BorderThickness="0" Background="{DynamicResource RegionBrush}" Effect="{DynamicResource EffectShadow3}" Style="{DynamicResource ListBoxCustom}">
+            <hc:SimplePanel>
+                <Rectangle Width="0" Fill="{DynamicResource ReverseTextBrush}" HorizontalAlignment="Left"></Rectangle>
+                <Path Stretch="Uniform" Fill="{DynamicResource PrimaryTextBrush}" Opacity=".6" Width="24" Margin="0,15" Data="{DynamicResource WorkGeometry}">
+                </Path>
+            </hc:SimplePanel>
+            <hc:SimplePanel Background="{DynamicResource DarkDefaultBrush}">
+                <Rectangle Width="4" Fill="{DynamicResource ReverseTextBrush}" HorizontalAlignment="Left"></Rectangle>
+                <Path Stretch="Uniform" Fill="{DynamicResource PrimaryTextBrush}" Opacity="1" Width="24" Margin="0,15" Data="{DynamicResource DeviceGeometry}"/>
+            </hc:SimplePanel>
+            <hc:SimplePanel>
+                <Rectangle Width="0" Fill="{DynamicResource ReverseTextBrush}" HorizontalAlignment="Left"></Rectangle>
+                <Path Stretch="Uniform" Fill="{DynamicResource PrimaryTextBrush}" Opacity=".6" Width="24" Margin="0,15" Data="{DynamicResource LogGeometry}"/>
+            </hc:SimplePanel>
+        </ListBox>
         <Border Grid.Column="1" Padding="18">
             <DockPanel>
                 <Border Background="{DynamicResource RegionBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10">
@@ -29,12 +43,12 @@
                 </Border>
                 <Border Background="{DynamicResource RegionBrush}" CornerRadius="{DynamicResource DefaultCornerRadius}" DockPanel.Dock="Top" Padding="10" Margin="0,10,0,0">
                     <hc:WaterfallPanel AutoGroup="True" DesiredLength="200">
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A101" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A102" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A103" MaxWidth="200" Height="200" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 烟感 ·" Descript="烟感设备A201" MaxWidth="200" Height="200" Geometry="{DynamicResource SmokeGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 火感 ·" Descript="火感设备A301" MaxWidth="200" Height="200" Geometry="{DynamicResource FireGeometry}"></local:DevicePlug>
-                        <local:DevicePlug DeviceName="· 摄像头 ·" Descript="摄像头V101" MaxWidth="200" Height="200" Geometry="{DynamicResource ViewGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A101" MaxWidth="200" Height="200" IconBrush="{DynamicResource DarkSuccessBrush}"  Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 插座门 ·" Descript="插座设备A102" MaxWidth="200" Height="200" IconBrush="{DynamicResource DarkDangerBrush}" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 插座 ·" Descript="插座设备A103" MaxWidth="200" Height="200" IconBrush="{DynamicResource DarkWarningBrush}" Geometry="{DynamicResource PlugGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 烟感 ·" Descript="烟感设备A201" MaxWidth="200" Height="200" IconBrush="{DynamicResource ReverseTextBrush}" Geometry="{DynamicResource SmokeGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 火感 ·" Descript="火感设备A301" MaxWidth="200" Height="200" IconBrush="{DynamicResource DarkDangerBrush}" Geometry="{DynamicResource FireGeometry}"></local:DevicePlug>
+                        <local:DevicePlug DeviceName="· 摄像头 ·" Descript="摄像头V101" MaxWidth="200" Height="200" IconBrush="{DynamicResource ReverseTextBrush}" Geometry="{DynamicResource ViewGeometry}"></local:DevicePlug>
                     </hc:WaterfallPanel>
                 </Border>
             </DockPanel>
