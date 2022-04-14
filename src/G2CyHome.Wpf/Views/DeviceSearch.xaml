@@ -1,0 +1,32 @@
+﻿<hc:Window x:Class="G2CyHome.Wpf.Views.DeviceSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        NonClientAreaBackground="{DynamicResource BackgroundBrush}"
+        FontSize="14"
+        Foreground="{DynamicResource PrimaryTextBrush}"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="搜索设备" Height="450" Width="800">
+    <hc:SimplePanel Background="{DynamicResource DarkDefaultBrush}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <hc:LoadingCircle Foreground="{DynamicResource ReverseTextBrush}"></hc:LoadingCircle>
+            <TextBlock Text="搜索中" Foreground="{DynamicResource ReverseTextBrush}" Margin="0,10,0,0"></TextBlock>
+        </StackPanel>
+        <ListBox BorderThickness="0" Foreground="{DynamicResource PrimaryTextBrush}" Style="{DynamicResource ListBoxCustom}" Background="{DynamicResource DarkDefaultBrush}" Margin="10">
+            <Border Background="{DynamicResource DefaultBrush}" Padding="10">
+                <DockPanel>
+                    <Path DockPanel.Dock="Left"  Fill="{DynamicResource ReverseTextBrush}" Data="{DynamicResource PlugGeometry}"  Width="20" Height="20" Margin="0,0,5,0"></Path>
+                    <Button x:Name="btn_addbind" Click="btn_addbind_Click" DockPanel.Dock="Right" Style="{DynamicResource ButtonIconCircular}" hc:IconElement.Geometry="{DynamicResource BindingGeometry}" Background="{DynamicResource ReverseTextBrush}"></Button>
+                    <UniformGrid Rows="1">
+                        <TextBlock Text="设备编号：A101" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="设备标识：0x0F" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="设备IP：192.168.31.119" VerticalAlignment="Center"></TextBlock>
+                    </UniformGrid>
+                </DockPanel>
+            </Border>
+        </ListBox>
+    </hc:SimplePanel>
+</hc:Window>

@@ -14,8 +14,9 @@
                 <TextBlock Text="{Binding ElementName=Parent,Path=DeviceName}" LineHeight="20" HorizontalAlignment="Center" Margin="{DynamicResource DefaultControlPadding}"></TextBlock>
                 <TextBlock Text="{Binding ElementName=Parent,Path=Descript}"  FontSize="12"  Opacity=".6" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
-            <Path HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Margin="5" Stretch="Uniform" Fill="{DynamicResource ReverseTextBrush}" Data="{StaticResource SettingGeometry}">
-            </Path>
+            <!--<Path HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Margin="5" Stretch="Uniform" Fill="{DynamicResource ReverseTextBrush}" Data="{StaticResource SettingGeometry}">
+            </Path>-->
+            <Ellipse HorizontalAlignment="Right" VerticalAlignment="Top"  Width="10" Height="10" Margin="5" Fill="{DynamicResource DarkSuccessBrush}"></Ellipse>
         </Grid>
         <Path Stretch="Uniform" Fill="{Binding ElementName=Parent,Path=IconBrush}" Margin="30" Data="{Binding ElementName=Parent,Path=Geometry}">
         </Path>
