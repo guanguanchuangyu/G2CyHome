@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G2CyHome.Wpf.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace G2CyHome.Wpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_addevice_Click(object sender, RoutedEventArgs e)
+        {
+            DeviceSearch search = new DeviceSearch();
+            search.Show();
         }
     }
 }

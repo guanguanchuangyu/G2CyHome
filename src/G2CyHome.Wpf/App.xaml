@@ -11,6 +11,9 @@
                 <ResourceDictionary Source="pack://application:,,,/G2CyHome.Wpf;component/Resources/Themes/Basic/Geometries.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Path" BasedOn="{x:Null}">
+                <Setter Property="Stretch" Value="Uniform"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
