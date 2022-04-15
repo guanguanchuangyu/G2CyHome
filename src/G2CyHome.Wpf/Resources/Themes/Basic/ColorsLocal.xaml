@@ -29,7 +29,7 @@
     <Color x:Key="TextIconColor">White</Color>
 
     <Color x:Key="BorderColor">#2d292f</Color>
-    <Color x:Key="SecondaryBorderColor">#e0e0e0</Color>
+    <Color x:Key="SecondaryBorderColor">#393c49</Color>
     <Color x:Key="BackgroundColor">#120f12</Color>
     <Color x:Key="RegionColor">#2B2A30</Color>
     <Color x:Key="SecondaryRegionColor">#393c49</Color>

@@ -19,7 +19,8 @@
             <Border Background="{DynamicResource DefaultBrush}" Padding="10">
                 <DockPanel>
                     <Path DockPanel.Dock="Left"  Fill="{DynamicResource ReverseTextBrush}" Data="{DynamicResource PlugGeometry}"  Width="20" Height="20" Margin="0,0,5,0"></Path>
-                    <Button x:Name="btn_addbind" Click="btn_addbind_Click" DockPanel.Dock="Right" Style="{DynamicResource ButtonIconCircular}" hc:IconElement.Geometry="{DynamicResource BindingGeometry}" Background="{DynamicResource ReverseTextBrush}"></Button>
+                    <Button x:Name="btn_addbind" Click="btn_addbind_Click"  DockPanel.Dock="Right" Style="{DynamicResource ButtonIconCircular}" hc:IconElement.Geometry="{DynamicResource BindingGeometry}" Background="{DynamicResource ReverseTextBrush}"></Button>
+                    <Button x:Name="btn_debug" Click="btn_debug_Click" Margin="0,0,5,0" DockPanel.Dock="Right" Style="{DynamicResource ButtonIconCircular}" hc:IconElement.Geometry="{DynamicResource DebugGeometry}" Background="{DynamicResource ReverseTextBrush}"></Button>
                     <UniformGrid Rows="1">
                         <TextBlock Text="设备编号：A101" VerticalAlignment="Center"></TextBlock>
                         <TextBlock Text="设备标识：0x0F" VerticalAlignment="Center"></TextBlock>

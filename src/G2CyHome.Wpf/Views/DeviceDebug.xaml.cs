@@ -1,5 +1,4 @@
-﻿using HandyControl.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace G2CyHome.Wpf.Views
 {
     /// <summary>
-    /// DeviceSearch.xaml 的交互逻辑
+    /// DeviceDebug.xaml 的交互逻辑
     /// </summary>
-    public partial class DeviceSearch
+    public partial class DeviceDebug
     {
-        public DeviceSearch()
+        public DeviceDebug()
         {
             InitializeComponent();
-        }
-
-        private void btn_addbind_Click(object sender, RoutedEventArgs e)
-        {
-            Dialog.Show(new DeviceBind());
-        }
-
-        private void btn_debug_Click(object sender, RoutedEventArgs e)
-        {
-            Dialog.Show(new DeviceDebug());
         }
     }
 }
