@@ -39,6 +39,7 @@ namespace G2CyHome.Web
                 .AddPack<FunctionAuthorizationPack>()
                 .AddPack<DataAuthorizationPack>()
                 .AddPack<MySqlDefaultDbContextMigrationPack>()
+                .AddPack<MySqlDeviceDbContextMigrationPack>()
                 .AddPack<AuditPack>()
                 ;
             //移除OsharpNs自带服务
