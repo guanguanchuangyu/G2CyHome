@@ -41,4 +41,8 @@
     <ProjectReference Include="..\G2CyHome.Core\G2CyHome.Core.csproj" />
     <ProjectReference Include="..\G2CyHome.Server\G2CyHome.Server.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
 </Project>
