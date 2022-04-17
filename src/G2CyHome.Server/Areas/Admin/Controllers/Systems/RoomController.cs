@@ -4,11 +4,11 @@
 //    手动更改此文件可能导致应用程序出现意外的行为。
 //    如果重新生成代码，对此文件的任何修改都会丢失。
 //    如果需要扩展此类，可以遵守如下规则进行扩展：
-//      1.横向扩展：如需给当前控制器添加API，请在控制器类型 SensorDataController.cs 进行添加
-//      2.纵向扩展：如需要重写当前控制器的API实现，请在控制器类型 SensorDataController.cs 进行继承重写
+//      1.横向扩展：如需给当前控制器添加API，请在控制器类型 RoomController.cs 进行添加
+//      2.纵向扩展：如需要重写当前控制器的API实现，请在控制器类型 RoomController.cs 进行继承重写
 // </auto-generated>
 //
-// <copyright file="SensorDataBase.generated.cs" company="无">
+// <copyright file="RoomBase.generated.cs" company="无">
 //    
 // </copyright>
 // <site></site>
@@ -35,44 +35,39 @@ using OSharp.Entity;
 using OSharp.Filter;
 using OSharp.Security;
 
-using G2CyHome.Devices;
-using G2CyHome.Devices.Dtos;
-using G2CyHome.Devices.Entities;
+using G2CyHome.Systems;
+using G2CyHome.Systems.Dtos;
+using G2CyHome.Systems.Entities;
 
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
     /// <summary>
-    /// 管理控制器基类: 传感器数据信息
+    /// 管理控制器基类: 房间管理信息
     /// </summary>
-    [ModuleInfo(Position = "Devices", PositionName = "设备管理模块")]
-    [Description("管理-传感器数据信息")]
-    public abstract class SensorDataControllerBase : AdminApiControllerBase
+    [ModuleInfo(Position = "Systems", PositionName = "系统管理模块")]
+    [Description("管理-房间管理信息")]
+    public class RoomController : AdminApiControllerBase
     {
         private readonly IServiceProvider _provider;
 
         /// <summary>
-        /// 初始化一个<see cref="SensorDataController"/>类型的新实例
+        /// 初始化一个<see cref="RoomController"/>类型的新实例
         /// </summary>
-        protected SensorDataControllerBase(IServiceProvider provider)
+        public RoomController(IServiceProvider provider)
             :base(provider)
         {
             _provider = provider;
         }
 
         /// <summary>
-        /// 获取或设置 设备管理模块业务契约对象
+        /// 获取或设置 系统管理模块业务契约对象
         /// </summary>
-        protected IDevicesContract DevicesContract => _provider.GetRequiredService<IDevicesContract>();
-
-        /// <summary>
-        /// 获取或设置 过滤服务模块业务契约对象
-        /// </summary>
-        protected IFilterService FilterService => _provider.GetRequiredService<IFilterService>();
+        protected ISystemsContract SystemsContract => _provider.GetRequiredService<ISystemsContract>();
 
 
         /// <summary>
-        /// 读取传感器数据列表信息
+        /// 读取房间管理列表信息
         /// </summary>
         /// <param name="request">页请求信息</param>
         /// <returns>JSON操作结果</returns>
@@ -83,33 +78,50 @@ namespace G2CyHome.Server.Areas.Admin.Controllers
         {
             Check.NotNull(request, nameof(request));
 
-            Expression<Func<SensorData, bool>> predicate = FilterService.GetExpression<SensorData>(request.FilterGroup);
-            var page = DevicesContract.SensorDatas.ToPage<SensorData, SensorDataReadOutput>(predicate, request.PageCondition);
+            Expression<Func<Room, bool>> predicate = FilterService.GetExpression<Room>(request.FilterGroup);
+            var page = SystemsContract.Rooms.ToPage<Room, RoomReadOutput>(predicate, request.PageCondition);
 
             return new OperationResult(OperationResultType.Success, "查询成功", page.ToPageData());
         }
 
         /// <summary>
-        /// 新增传感器数据信息
+        /// 新增房间管理信息
         /// </summary>
-        /// <param name="dtos">传感器数据信息输入DTO</param>
+        /// <param name="dtos">房间管理信息输入DTO</param>
         /// <returns>JSON操作结果</returns>
         [HttpPost]
         [ModuleInfo]
         //[DependOnFunction(nameof(Read))]
         [UnitOfWork]
         [Description("新增")]
-        public virtual async Task<OperationResult> Create(SensorDataCreateInput[] dtos)
+        public virtual async Task<OperationResult> Create(RoomCreateInput[] dtos)
         {
             Check.NotNull(dtos, nameof(dtos));
-            OperationResult result = await DevicesContract.CreateSensorDatas(dtos);
+            OperationResult result = await SystemsContract.CreateRooms(dtos);
             return result;
         }
 
         /// <summary>
-        /// 删除传感器数据信息
+        /// 更新房间管理信息
         /// </summary>
-        /// <param name="ids">传感器数据信息编号</param>
+        /// <param name="dtos">房间管理信息输入DTO</param>
+        /// <returns>JSON操作结果</returns>
+        [HttpPost]
+        [ModuleInfo]
+        //[DependOnFunction(nameof(Read))]
+        [UnitOfWork]
+        [Description("更新")]
+        public virtual async Task<OperationResult> Update(RoomUpdateInput[] dtos)
+        {
+            Check.NotNull(dtos, nameof(dtos));
+            OperationResult result = await SystemsContract.UpdateRooms(dtos);
+            return result;
+        }
+
+        /// <summary>
+        /// 删除房间管理信息
+        /// </summary>
+        /// <param name="ids">房间管理信息编号</param>
         /// <returns>JSON操作结果</returns>
         [HttpPost]
         [ModuleInfo]
@@ -119,7 +131,7 @@ namespace G2CyHome.Server.Areas.Admin.Controllers
         public virtual async Task<OperationResult> Delete(int[] ids)
         {
             Check.NotNull(ids, nameof(ids));
-            OperationResult result = await DevicesContract.DeleteSensorDatas(ids);
+            OperationResult result = await SystemsContract.DeleteRooms(ids);
             return result;
         }
     }
