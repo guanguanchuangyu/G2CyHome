@@ -44,5 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Migrations\DefaultDbContext\" />
   </ItemGroup>
 </Project>

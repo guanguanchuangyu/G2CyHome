@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Migrations
 {
-    public partial class init : Migration
+    public partial class default_init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -212,7 +212,7 @@ namespace Migrations
                 {
                     table.PrimaryKey("PK_Systems_Menu", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Systems_Menu_Systems_Menu_ParentId",
+                        name: "FK_Systems_Menu_ParentId",
                         column: x => x.ParentId,
                         principalTable: "Systems_Menu",
                         principalColumn: "Id",
@@ -260,13 +260,13 @@ namespace Migrations
                 {
                     table.PrimaryKey("PK_Auth_EntityRole", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Auth_EntityRole_Auth_EntityInfo_EntityId",
+                        name: "FK_EntityRole_EntityId",
                         column: x => x.EntityId,
                         principalTable: "Auth_EntityInfo",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Auth_EntityRole_Identity_Role_RoleId",
+                        name: "FK_EntityRole_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Identity_Role",
                         principalColumn: "Id",
@@ -429,7 +429,7 @@ namespace Migrations
                 {
                     table.PrimaryKey("PK_Identity_UserDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Identity_UserDetail_Identity_User_UserId",
+                        name: "FK_UserDetail_User_UserId",
                         column: x => x.UserId,
                         principalTable: "Identity_User",
                         principalColumn: "Id",
@@ -452,7 +452,7 @@ namespace Migrations
                 {
                     table.PrimaryKey("PK_Identity_UserLogin", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Identity_UserLogin_Identity_User_UserId",
+                        name: "FK_UserLogin_User_UserId",
                         column: x => x.UserId,
                         principalTable: "Identity_User",
                         principalColumn: "Id",
@@ -712,7 +712,7 @@ namespace Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Systems_Menu_ParentId",
+                name: "IX_Devicelabel_LabelId",
                 table: "Systems_Menu",
                 column: "ParentId");
         }

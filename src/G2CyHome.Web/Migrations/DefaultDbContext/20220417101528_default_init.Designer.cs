@@ -9,8 +9,8 @@ using OSharp.Entity;
 namespace Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20220416164919_init")]
-    partial class init
+    [Migration("20220417101528_default_init")]
+    partial class default_init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -761,7 +761,8 @@ namespace Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
+                    b.HasIndex("ParentId")
+                        .HasDatabaseName("IX_Devicelabel_LabelId");
 
                     b.ToTable("Systems_Menu");
                 });
@@ -906,12 +907,14 @@ namespace Migrations
                     b.HasOne("OSharp.Authorization.EntityInfos.EntityInfo", "EntityInfo")
                         .WithMany()
                         .HasForeignKey("EntityId")
+                        .HasConstraintName("FK_EntityRole_EntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("G2CyHome.Identity.Entities.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_EntityRole_RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1063,6 +1066,7 @@ namespace Migrations
                     b.HasOne("G2CyHome.Identity.Entities.User", "User")
                         .WithOne("UserDetail")
                         .HasForeignKey("G2CyHome.Identity.Entities.UserDetail", "UserId")
+                        .HasConstraintName("FK_UserDetail_User_UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1074,6 +1078,7 @@ namespace Migrations
                     b.HasOne("G2CyHome.Identity.Entities.User", "User")
                         .WithMany("UserLogins")
                         .HasForeignKey("UserId")
+                        .HasConstraintName("FK_UserLogin_User_UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1141,7 +1146,8 @@ namespace Migrations
                 {
                     b.HasOne("G2CyHome.Systems.Entities.Menu", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId");
+                        .HasForeignKey("ParentId")
+                        .HasConstraintName("FK_Systems_Menu_ParentId");
 
                     b.Navigation("Parent");
                 });
