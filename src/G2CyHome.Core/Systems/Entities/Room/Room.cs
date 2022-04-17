@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G2CyHome.Devices.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace G2CyHome.Systems.Entities
 {
     public partial class Room
     {
-        //添加设备列表导航属性
-
+        /// <summary>
+        /// 添加设备列表导航属性
+        /// </summary>
+        public virtual ICollection<DeviceRecord> Devices { get; set; }
     }
 }

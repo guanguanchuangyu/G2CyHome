@@ -11,6 +11,6 @@ namespace G2CyHome.Devices.Entities
         /// <summary>
         /// 添加设备导航属性
         /// </summary>
-        public virtual ICollection<DeviceRecord> Devices { get; set; }
+        public virtual DeviceRecord Device { get; set; }
     }
 }

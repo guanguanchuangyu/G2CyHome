@@ -4,10 +4,10 @@
 //    手动更改此文件可能导致应用程序出现意外的行为。
 //    如果重新生成代码，对此文件的任何修改都会丢失。
 //    如果需要扩展此类：可遵守如下规则进行扩展：
-//      1.横向扩展：如需添加额外的映射，可新建文件“DeviceRecordConfiguration.cs”的分部类“public partial class DeviceRecordConfiguration”实现分部方法 EntityConfigurationAppend 进行扩展
+//      1.横向扩展：如需添加额外的映射，可新建文件“DeviceLabelConfiguration.cs”的分部类“public partial class DeviceLabelConfiguration”实现分部方法 EntityConfigurationAppend 进行扩展
 // </auto-generated>
 //
-// <copyright file="DeviceRecordConfiguration.generated.cs" company="无">
+// <copyright file="DeviceLabelConfiguration.generated.cs" company="无">
 //     
 // </copyright>
 // <site></site>
@@ -22,28 +22,27 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using OSharp.Entity;
 
-using G2CyHome.Devices.Entities;
 using G2CyHome.Systems.Entities;
 
-namespace G2CyHome.EntityConfiguration.Devices
+
+namespace G2CyHome.EntityConfiguration.Systems
 {
     /// <summary>
-    /// 实体配置类：设备记录信息
+    /// 实体配置类：设备标签关联信息
     /// </summary>
-    public partial class DeviceRecordConfiguration
+    public partial class DeviceLabelConfiguration
     {
         public override Type DbContextType => typeof(DeviceDbContext);
         /// <summary>
         /// 额外的数据映射
         /// </summary>
-        partial void EntityConfigurationAppend(EntityTypeBuilder<DeviceRecord> builder)
+        partial void EntityConfigurationAppend(EntityTypeBuilder<DeviceLabel> builder)
         {
-            builder.HasOne(x => x.Room)
-                .WithMany(x => x.Devices).HasForeignKey(x => x.RoomId).HasConstraintName($"FK_Device_Room");
-
-            builder.HasOne(x => x.DeviceType)
-                .WithMany()
-                .HasForeignKey(x => x.DevicetypeId).HasConstraintName("FK_Device_Type");
+            builder.HasKey(x => new { x.LabelId,x.DeviceId }).HasName("PK_device_label");
+            builder.HasOne(x => x.Label)
+                .WithMany(x => x.DeviceLabels).HasForeignKey(x => x.LabelId).HasConstraintName("FK_devicelabel_label");
+            builder.HasOne(x => x.Device)
+                .WithMany(x => x.DeviceLabels).HasForeignKey(x => x.DeviceId).HasConstraintName("FK_devicelabel_device");
         }
     }
 }

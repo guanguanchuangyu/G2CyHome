@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Systems.Entities
 {
-    public partial class Label
+    public partial class DeviceLabel
     {
         /// <summary>
-        /// 设备列表导航属性
+        /// 设置设备导航属性
         /// </summary>
-        public virtual ICollection<DeviceRecord> Devices { get; set; }
+        public virtual DeviceRecord  Device { get; set; }
         /// <summary>
-        /// 设备标签关联列表导航属性
+        /// 设置标签导航属性
         /// </summary>
-        public virtual ICollection<DeviceLabel> DeviceLabels { get; set; }
+        public virtual Label Label { get; set; }
     }
 }

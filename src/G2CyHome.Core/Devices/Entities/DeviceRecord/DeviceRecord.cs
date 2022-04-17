@@ -14,8 +14,16 @@ namespace G2CyHome.Devices.Entities
         /// </summary>
         public virtual ICollection<Label> Labels { get; set; }
         /// <summary>
+        /// 添加设备标签列表导航
+        /// </summary>
+        public virtual ICollection<DeviceLabel> DeviceLabels { get; set; }
+        /// <summary>
         /// 添加所属房间导航属性
         /// </summary>
         public virtual Room Room { get; set; }
+        /// <summary>
+        /// 添加设备类型导航属性
+        /// </summary>
+        public virtual DeviceType DeviceType { get; set; }
     }
 }
