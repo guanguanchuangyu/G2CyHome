@@ -10,6 +10,7 @@
 using G2Cy.Extensions;
 using G2Cy.Swagger;
 using G2CyHome.Authorization;
+using G2CyHome.Devices;
 using G2CyHome.Identity;
 using G2CyHome.Server.Controllers;
 using G2CyHome.Systems;
@@ -41,6 +42,7 @@ namespace G2CyHome.Web
                 .AddPack<MySqlDefaultDbContextMigrationPack>()
                 .AddPack<MySqlDeviceDbContextMigrationPack>()
                 .AddPack<AuditPack>()
+                .AddPack<DevicesPack>()
                 ;
             //移除OsharpNs自带服务
             services.AddExtensionServices();
