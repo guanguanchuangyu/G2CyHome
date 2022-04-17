@@ -28,8 +28,8 @@ namespace G2CyHome.EntityConfiguration.Authorization
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<ModuleFunction> builder)
         {
-            builder.HasIndex(m => new { m.ModuleId, m.FunctionId }).HasName("ModuleFunctionIndex").IsUnique();
-            builder.HasIndex(m => m.FunctionId).HasName("IX_ModuleFunctionId");
+            builder.HasIndex(m => new { m.ModuleId, m.FunctionId }).HasDatabaseName("ModuleFunctionIndex").IsUnique();
+            builder.HasIndex(m => m.FunctionId).HasDatabaseName("IX_ModuleFunctionId");
 
             builder.HasOne<Module>(mf => mf.Module).WithMany().HasForeignKey(m => m.ModuleId).HasConstraintName("Fk_Func_ModuleId");
             builder.HasOne<Function>(mf => mf.Function).WithMany().HasForeignKey(m => m.FunctionId).HasConstraintName("Fk_Func_FunctionId");

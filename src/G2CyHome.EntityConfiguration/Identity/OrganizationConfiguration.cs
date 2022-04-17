@@ -22,7 +22,7 @@ namespace G2CyHome.EntityConfiguration.Identity
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<Organization> builder)
         {
-            builder.HasIndex(m => m.ParentId).HasName("IX_Organ_ParentId");
+            builder.HasIndex(m => m.ParentId).HasDatabaseName("IX_Organ_ParentId");
             builder.HasOne<Organization>().WithMany().HasForeignKey(m => m.ParentId).IsRequired(false).HasConstraintName("FK_Organ_ParentId");
 
             EntityConfigurationAppend(builder);

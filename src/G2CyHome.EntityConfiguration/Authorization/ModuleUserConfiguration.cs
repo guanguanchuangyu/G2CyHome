@@ -28,7 +28,7 @@ namespace G2CyHome.EntityConfiguration.Authorization
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<ModuleUser> builder)
         {
-            builder.HasIndex(m => new { m.ModuleId, m.UserId }).HasName("ModuleUserIndex").IsUnique();
+            builder.HasIndex(m => new { m.ModuleId, m.UserId }).HasDatabaseName("ModuleUserIndex").IsUnique();
 
             builder.HasOne<Module>(mu => mu.Module).WithMany().HasForeignKey(m => m.ModuleId).HasConstraintName("FK_ModuleUser_ModuleId");
             builder.HasOne<User>(mu => mu.User).WithMany().HasForeignKey(m => m.UserId).HasConstraintName("FK_ModuleUser_UserId");
