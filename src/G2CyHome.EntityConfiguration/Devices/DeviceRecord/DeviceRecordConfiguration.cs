@@ -43,7 +43,30 @@ namespace G2CyHome.EntityConfiguration.Devices
 
             builder.HasOne(x => x.DeviceType)
                 .WithMany()
-                .HasForeignKey(x => x.DevicetypeId).HasConstraintName("FK_Device_Type");
+                .HasForeignKey(x => x.DevicetypeId).HasPrincipalKey(x => x.Id).HasConstraintName("FK_Device_Type");
+
+            builder.HasIndex(x => x.RoomId).HasDatabaseName("IX_Device_RoomId");
+            builder.HasIndex(x => x.DevicetypeId).HasDatabaseName("IX_Device_TypeId");
+
+            builder.HasMany(p => p.Labels)
+            .WithMany(p => p.Devices)
+            .UsingEntity<DeviceLabel>(
+                j => j
+                    .HasOne(pt => pt.Label)
+                    .WithMany(t => t.DeviceLabels)
+                    .HasForeignKey(pt => pt.LabelId)
+                    .HasConstraintName("FK_devicelabel_label"),
+                  j => j.HasOne(x => x.Device)
+                        .WithMany(x => x.DeviceLabels)
+                        .HasForeignKey(x => x.DeviceId)
+                        .HasConstraintName("FK_devicelabel_device"),
+                  j =>
+                  {
+                      j.ToTable("devicelabel");
+                      j.HasIndex(x => x.LabelId).HasDatabaseName("IX_Devicelabel_LabelId");
+                      j.HasKey(t => new { t.DeviceId, t.LabelId }).HasName("PK_device_label");
+                  }
+                );
         }
     }
 }

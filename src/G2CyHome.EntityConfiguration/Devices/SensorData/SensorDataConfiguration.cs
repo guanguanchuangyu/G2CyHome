@@ -41,6 +41,7 @@ namespace G2CyHome.EntityConfiguration.Devices
             builder.HasOne(x => x.Device)
                 .WithMany()
                 .HasForeignKey(x => x.DeviceIdentity).HasPrincipalKey(x => x.DeviceIdentity).HasConstraintName("FK_Sensor_identity");
+            builder.HasIndex(x => x.DeviceIdentity).HasDatabaseName("IX_Sensor_Identity");
         }
     }
 }
