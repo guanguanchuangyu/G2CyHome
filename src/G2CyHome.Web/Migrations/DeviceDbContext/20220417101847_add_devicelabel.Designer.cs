@@ -3,14 +3,16 @@ using System;
 using G2CyHome.EntityConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Migrations
 {
     [DbContext(typeof(DeviceDbContext))]
-    partial class DeviceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220417101847_add_devicelabel")]
+    partial class add_devicelabel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
