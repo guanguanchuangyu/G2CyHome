@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Systems
 {
-    public partial class SystemsService
+    public partial class SystemsServiceBase
     {
         /// <summary>
         /// 获取 菜单信息查询数据集

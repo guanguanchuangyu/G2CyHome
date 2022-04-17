@@ -18,18 +18,15 @@ namespace G2CyHome.Systems
     /// <summary>
     /// 业务实现：系统模块
     /// </summary>
-    public partial class SystemsService : ISystemsContract
+    public partial class SystemsService : SystemsServiceBase
     {
-        private readonly IServiceProvider _provider;
-
         /// <summary>
         /// 初始化一个<see cref="SystemsService"/>类型的新实例
         /// </summary>
         public SystemsService(IServiceProvider provider)
+            :base(provider)
         {
-            _provider = provider;
-        }
 
-        protected IRepository<Menu, int> MenuInfoRepository => _provider.GetService<IRepository<Menu, int>>();
+        }
     }
 }
