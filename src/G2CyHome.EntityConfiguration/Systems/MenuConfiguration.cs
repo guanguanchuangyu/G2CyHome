@@ -8,6 +8,7 @@
 // -----------------------------------------------------------------------
 
 using G2CyHome.Systems.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OSharp.Entity;
 using System;
@@ -23,8 +24,8 @@ namespace G2CyHome.EntityConfiguration.Systems
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<Menu> builder)
         {
-            builder.HasIndex(m => m.ParentId);
-            builder.HasMany(m => m.Children).WithOne(m => m.Parent).HasForeignKey(m => m.ParentId);
+            builder.HasIndex(m => m.ParentId).HasDatabaseName("IX_Devicelabel_LabelId");
+            builder.HasMany(m => m.Children).WithOne(m => m.Parent).HasForeignKey(m => m.ParentId).HasConstraintName("FK_Systems_Menu_ParentId");
 
             EntityConfigurationAppend(builder);
         }

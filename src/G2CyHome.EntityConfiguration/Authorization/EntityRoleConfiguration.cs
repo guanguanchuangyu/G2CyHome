@@ -26,10 +26,10 @@ namespace G2CyHome.EntityConfiguration.Authorization
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<EntityRole> builder)
         {
-            builder.HasIndex(m => m.RoleId).HasName("IX_EntityRole_RoleId");
-            builder.HasIndex(m => new { m.EntityId, m.RoleId, m.Operation }).HasName("EntityRoleIndex").IsUnique();
-            builder.HasOne<EntityInfo>(er => er.EntityInfo).WithMany().HasForeignKey(m => m.EntityId);
-            builder.HasOne<Role>(er => er.Role).WithMany().HasForeignKey(m => m.RoleId);
+            builder.HasIndex(m => m.RoleId).HasDatabaseName("IX_EntityRole_RoleId");
+            builder.HasIndex(m => new { m.EntityId, m.RoleId, m.Operation }).HasDatabaseName("EntityRoleIndex").IsUnique();
+            builder.HasOne<EntityInfo>(er => er.EntityInfo).WithMany().HasForeignKey(m => m.EntityId).HasConstraintName("FK_EntityRole_EntityId");
+            builder.HasOne<Role>(er => er.Role).WithMany().HasForeignKey(m => m.RoleId).HasConstraintName("FK_EntityRole_RoleId");
 
             EntityConfigurationAppend(builder);
         }

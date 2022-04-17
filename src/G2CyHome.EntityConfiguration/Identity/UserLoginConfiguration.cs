@@ -24,8 +24,8 @@ namespace G2CyHome.EntityConfiguration.Identity
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<UserLogin> builder)
         {
-            builder.HasIndex(m => new { m.LoginProvider, m.ProviderKey }).HasName("UserLoginIndex").IsUnique();
-            builder.HasOne(ul => ul.User).WithMany(u => u.UserLogins).HasForeignKey(ul => ul.UserId).IsRequired();
+            builder.HasIndex(m => new { m.LoginProvider, m.ProviderKey }).HasDatabaseName("UserLoginIndex").IsUnique();
+            builder.HasOne(ul => ul.User).WithMany(u => u.UserLogins).HasForeignKey(ul => ul.UserId).IsRequired().HasConstraintName("FK_UserLogin_User_UserId"); ;
             builder.HasIndex(m => m.UserId).HasDatabaseName("IX_UserLogin_UserId");
 
             EntityConfigurationAppend(builder);

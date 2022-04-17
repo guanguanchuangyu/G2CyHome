@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------
 
 using G2CyHome.Identity.Entities;
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using OSharp.Entity;
@@ -24,7 +24,7 @@ namespace G2CyHome.EntityConfiguration.Identity
         /// <param name="builder">实体类型创建器</param>
         public override void Configure(EntityTypeBuilder<UserDetail> builder)
         {
-            builder.HasOne(ud => ud.User).WithOne(u => u.UserDetail).HasForeignKey<UserDetail>(ud => ud.UserId).IsRequired();
+            builder.HasOne(ud => ud.User).WithOne(u => u.UserDetail).HasForeignKey<UserDetail>(ud => ud.UserId).IsRequired().HasConstraintName("FK_UserDetail_User_UserId");
 
             EntityConfigurationAppend(builder);
         }
