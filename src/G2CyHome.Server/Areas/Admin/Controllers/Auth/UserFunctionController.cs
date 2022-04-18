@@ -28,6 +28,9 @@ using System.Linq.Expressions;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 用户功能
+    /// </summary>
     [ModuleInfo(Order = 4, Position = "Auth", PositionName = "权限授权模块")]
     [Description("管理-用户功能")]
     public class UserFunctionController : AdminApiControllerBase

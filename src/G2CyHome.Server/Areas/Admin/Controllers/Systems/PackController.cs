@@ -28,6 +28,9 @@ using System.Linq.Expressions;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 模块包信息
+    /// </summary>
     [ModuleInfo(Order = 4, Position = "Systems", PositionName = "系统管理模块")]
     [Description("管理-模块包信息")]
     public class PackController : AdminApiControllerBase

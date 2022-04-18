@@ -30,6 +30,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 实体信息
+    /// </summary>
     [ModuleInfo(Order = 5, Position = "Auth", PositionName = "权限授权模块")]
     [Description("管理-实体信息")]
     public class EntityInfoController : AdminApiControllerBase

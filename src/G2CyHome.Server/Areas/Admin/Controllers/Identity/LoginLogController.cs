@@ -27,6 +27,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 登录日志信息
+    /// </summary>
     [ModuleInfo(Order = 4, Position = "Identity", PositionName = "身份认证模块")]
     [Description("管理-登录日志信息")]
     public class LoginLogController : AdminApiControllerBase

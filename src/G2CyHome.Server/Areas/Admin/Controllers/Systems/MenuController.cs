@@ -26,6 +26,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 菜单信息
+    /// </summary>
     [ModuleInfo(Order = 5, Position = "Systems", PositionName = "系统管理模块")]
     [Description("管理-菜单信息")]
     public class MenuController : AdminApiControllerBase

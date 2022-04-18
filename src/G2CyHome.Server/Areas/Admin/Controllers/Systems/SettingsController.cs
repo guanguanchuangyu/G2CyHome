@@ -24,6 +24,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 系统设置
+    /// </summary>
     [ModuleInfo(Order = 1, Position = "Systems", PositionName = "系统管理模块")]
     [Description("管理-系统设置")]
     public class SettingsController : AdminApiControllerBase

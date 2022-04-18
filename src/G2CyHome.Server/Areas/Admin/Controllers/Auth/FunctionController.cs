@@ -30,6 +30,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 功能信息
+    /// </summary>
     [ModuleInfo(Order = 2, Position = "Auth", PositionName = "权限授权模块")]
     [Description("管理-功能信息")]
     public class FunctionController : AdminApiControllerBase

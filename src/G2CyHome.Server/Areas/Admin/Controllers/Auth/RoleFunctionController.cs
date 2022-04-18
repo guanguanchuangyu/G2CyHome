@@ -28,6 +28,9 @@ using System.Linq.Expressions;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 角色功能
+    /// </summary>
     [ModuleInfo(Order = 3, Position = "Auth", PositionName = "权限授权模块")]
     [Description("管理-角色功能")]
     public class RoleFunctionController : AdminApiControllerBase

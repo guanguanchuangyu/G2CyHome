@@ -37,6 +37,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 角色信息
+    /// </summary>
     [ModuleInfo(Order = 2, Position = "Identity", PositionName = "身份认证模块")]
     [Description("管理-角色信息")]
     public class RoleController : AdminApiControllerBase

@@ -40,6 +40,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 用户信息
+    /// </summary>
     [ModuleInfo(Order = 1, Position = "Identity", PositionName = "身份认证模块")]
     [Description("管理-用户信息")]
     public class UserController : AdminApiControllerBase

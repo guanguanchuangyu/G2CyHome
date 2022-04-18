@@ -23,6 +23,9 @@ using System.Linq;
 
 namespace G2CyHome.Server.Controllers
 {
+    /// <summary>
+    /// 授权
+    /// </summary>
     [Description("网站-授权")]
     [ModuleInfo(Order = 2)]
     public class AuthController : SiteApiControllerBase

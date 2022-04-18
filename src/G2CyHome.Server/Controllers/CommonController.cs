@@ -25,6 +25,9 @@ using AssemblyExtensions = OSharp.Reflection.AssemblyExtensions;
 
 namespace G2CyHome.Server.Controllers
 {
+    /// <summary>
+    /// 通用
+    /// </summary>
     [Description("网站-通用")]
     [ModuleInfo(Order = 3)]
     //[ApiExplorerSettings(GroupName = "buss")]

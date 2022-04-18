@@ -24,6 +24,9 @@ using System.Linq.Expressions;
 
 namespace G2CyHome.Server.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// 数据审计信息
+    /// </summary>
     [ModuleInfo(Order = 3, Position = "Systems", PositionName = "系统管理模块")]
     [Description("管理-数据审计信息")]
     public class AuditEntityController : AdminApiControllerBase

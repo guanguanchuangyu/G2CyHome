@@ -35,6 +35,9 @@ using System.Threading.Tasks;
 
 namespace G2CyHome.Server.Controllers
 {
+    /// <summary>
+    /// 认证
+    /// </summary>
     [Description("网站-认证")]
     [ModuleInfo(Order = 1)]
     public class IdentityController : SiteApiControllerBase
