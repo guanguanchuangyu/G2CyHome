@@ -9,7 +9,7 @@ namespace G2CyHome.Devices.Entities
     /// <summary>
     /// 设备类型
     /// </summary>
-    public enum DeviceType:byte
+    public enum Devicetype:byte
     {
         /// <summary>
         /// 无线插座

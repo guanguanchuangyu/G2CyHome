@@ -22,7 +22,7 @@ namespace G2CyHome.Devices.Entities
         /// <summary>
         /// 设备类型
         /// </summary>
-        public DeviceType DeviceType { get; }
+        public Devicetype DeviceType { get; }
         /// <summary>
         /// 控制类型
         /// </summary>

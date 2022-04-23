@@ -31,7 +31,7 @@ namespace G2CyHome.Devices.Entities
         /// <summary>
         /// 设备类型
         /// </summary>
-        public abstract DeviceType DeviceType { get;}
+        public abstract Devicetype DeviceType { get;}
         /// <summary>
         /// 控制类型
         /// </summary>

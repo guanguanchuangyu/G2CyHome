@@ -19,6 +19,6 @@ namespace G2CyHome.Devices.Entities.Bits
         /// <summary>
         /// 设备类型
         /// </summary>
-        public override DeviceType DeviceType => DeviceType.Outlet;
+        public override Devicetype DeviceType => Devicetype.Outlet;
     }
 }
