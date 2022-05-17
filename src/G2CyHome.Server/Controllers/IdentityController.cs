@@ -217,6 +217,11 @@ namespace G2CyHome.Server.Controllers
             }
 
             //todo: 校验验证码
+            ICaptcha captcha = _provider.GetRequiredService<ICaptcha>();
+            if (!captcha.Validate(dto.CaptchaId,dto.VerifyCode))
+            {
+                return new AjaxResult("验证码错误，请刷新重试", AjaxResultType.Error);
+            }
             dto.Ip = HttpContext.GetClientIp();
             dto.UserAgent = Request.Headers["User-Agent"].FirstOrDefault();
 
@@ -231,7 +236,14 @@ namespace G2CyHome.Server.Controllers
 
             User user = result.Data;
             await SignInManager.SignInAsync(user, dto.Remember);
-            return new AjaxResult("登录成功");
+            JsonWebToken token = null;
+            // 判定是否启用Token
+            if (dto.IsToken)
+            {
+                token = await CreateJwtToken(user, dto.ClientType);
+            }
+
+            return new AjaxResult("登录成功", AjaxResultType.Success, token);
         }
 
         /// <summary>

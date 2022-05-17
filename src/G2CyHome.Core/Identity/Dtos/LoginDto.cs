@@ -31,6 +31,10 @@ namespace G2CyHome.Identity.Dtos
         /// 获取或设置 验证码
         /// </summary>
         public string VerifyCode { get; set; }
+        /// <summary>
+        /// 获取或设置 验证码编号
+        /// </summary>
+        public string CaptchaId { get; set; }
 
         /// <summary>
         /// 获取或设置 记住登录
