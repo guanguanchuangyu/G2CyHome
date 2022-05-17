@@ -204,6 +204,11 @@ namespace G2CyHome.Server.Controllers
             return new AjaxResult("GrantType错误", AjaxResultType.Error);
         }
 
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="dto">登录实体</param>
+        /// <returns>登录结果</returns>
         [HttpPost]
         [ModuleInfo]
         [Description("用户登录")]
