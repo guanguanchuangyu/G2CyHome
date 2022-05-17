@@ -59,6 +59,20 @@ namespace G2CyHome.Server.Controllers
             return File(ms, "image/gif");
         }
 
+
+        /// <summary>
+        /// 生成base64验证码
+        /// </summary>
+        [HttpGet]
+        [ModuleInfo]
+        [Description("生成base64验证码")]
+        public IActionResult CaptchaBase64(string id)
+        {
+            ICaptcha captcha = _provider.GetRequiredService<ICaptcha>();
+            CaptchaData data = captcha.Generate(id);
+            return new JsonResult(data.Base64);
+        }
+
         /// <summary>
         /// 检查验证码
         /// </summary>
