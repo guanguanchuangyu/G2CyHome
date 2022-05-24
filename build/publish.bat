@@ -1,0 +1,1 @@
+dotnet publish  -c Release -f net5.0 -o E:\Study\Servers\g2cyhome
