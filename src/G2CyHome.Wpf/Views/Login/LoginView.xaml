@@ -9,7 +9,8 @@
         ShowNonClientArea="False"
         Background="{DynamicResource DarkDefaultBrush}" ResizeMode="NoResize" 
         hc:WindowAttach.IsDragElement="True"
-        hc:BorderElement.CornerRadius="4">
+        hc:BorderElement.CornerRadius="4"
+    xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
     <hc:Window.Resources>
         <Style x:Key="WatermarkTextBoxStyle" TargetType="{x:Type hc:WatermarkTextBox}">
             <Setter Property="Background" Value="{x:Null}"/>
@@ -18,11 +19,13 @@
             <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
             <Setter Property="Padding" Value="6,4"/>
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="hc:IconElement.Height" Value="21"/>
+            <Setter Property="hc:IconElement.Width" Value="21"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type hc:WatermarkTextBox}">
                         <hc:SimplePanel>
-                            <DockPanel HorizontalAlignment="Left">
+                            <DockPanel>
                                 <Path HorizontalAlignment="Left" Margin="0,0,0,3" Data="{Binding Path=(hc:IconElement.Geometry),RelativeSource={RelativeSource Mode=TemplatedParent}}" Fill="{DynamicResource ThirdlyTextBrush}" Stretch="Uniform" 
                                   Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource Mode=TemplatedParent}}" 
                                   Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource Mode=TemplatedParent}}" 
@@ -38,34 +41,46 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="WatermarkTextBoxStyle01" TargetType="{x:Type hc:WatermarkTextBox}">
+
+        <Style x:Key="PasswordBoxBaseStyle" TargetType="PasswordBox">
             <Setter Property="Background" Value="{x:Null}"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="CaretBrush" Value="{Binding Foreground, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
             <Setter Property="Padding" Value="6,4"/>
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="hc:IconElement.Height" Value="21"/>
+            <Setter Property="hc:IconElement.Width" Value="21"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type hc:WatermarkTextBox}">
+                    <ControlTemplate TargetType="PasswordBox">
                         <hc:SimplePanel>
-                            <DockPanel HorizontalAlignment="Left">
+                            <DockPanel>
                                 <Path HorizontalAlignment="Left" Margin="0,0,0,3" Data="{Binding Path=(hc:IconElement.Geometry),RelativeSource={RelativeSource Mode=TemplatedParent}}" Fill="{DynamicResource ThirdlyTextBrush}" Stretch="Uniform" 
                                   Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource Mode=TemplatedParent}}" 
                                   Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource Mode=TemplatedParent}}" 
                                   DockPanel.Dock="Left"></Path>
-                                <hc:SimplePanel x:Name="WatermarkContent">
-                                    <TextBlock x:Name="PART_Watermark" Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" Opacity="0.6" Text="{TemplateBinding Watermark}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Visibility="{TemplateBinding Text, Converter={StaticResource String2VisibilityReConverter}}"/>
+                                <hc:SimplePanel>
+                                    <TextBlock Margin="2,-1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Opacity="0.6" Padding="{TemplateBinding Padding}" x:Name="placeholder" Visibility="Collapsed" HorizontalAlignment="Stretch" 
+                                       Text="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
                                     <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" Margin="-2,0,-1,0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" VerticalScrollBarVisibility="Hidden"/>
                                 </hc:SimplePanel>
                             </DockPanel>
-                            <Image Width="60" HorizontalAlignment="Right" Margin="0,0,0,2" Cursor="Hand" Source="pack://application:,,,/Resources/Images/vertifycode.png" Stretch="UniformToFill"/>
                             <Border BorderBrush="{DynamicResource ThirdlyTextBrush}" BorderThickness="0,0,0,0.5" Opacity="0.6"></Border>
                         </hc:SimplePanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="hc:PasswordBoxAttach.PasswordLength" Value="0">
+                                <Setter Property="Visibility" TargetName="placeholder" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+        
     </hc:Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -78,14 +93,16 @@
                 <TextBlock Text="G2Cy 易蜗易居" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource TextIconBrush}"></TextBlock>
                 <hc:UniformSpacingPanel Orientation="Vertical" Spacing="40">
                     <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource UserGeometry}" Padding="6,4" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle}"
-                                         hc:IconElement.Height="21" 
-                                         hc:IconElement.Width="21" Watermark="请输入用户名" VerticalAlignment="Center"></hc:WatermarkTextBox>
-                    <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource LockGeometry}" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle}"
-                                         hc:IconElement.Height="21" 
-                                         hc:IconElement.Width="21" Watermark="请输入密码" VerticalAlignment="Center"></hc:WatermarkTextBox>
-                    <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource SafeGeometry}" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle01}"
-                                         hc:IconElement.Height="21" 
-                                         hc:IconElement.Width="21" Watermark="验证码" VerticalAlignment="Center"></hc:WatermarkTextBox>
+                                         Watermark="请输入用户名" VerticalAlignment="Center"></hc:WatermarkTextBox>
+                    <PasswordBox Style="{DynamicResource PasswordBoxBaseStyle}" hc:InfoElement.TitlePlacement="Left"  hc:IconElement.Geometry="{DynamicResource LockGeometry}" 
+                                 hc:InfoElement.Placeholder="请输入密码" 
+                                 FontSize="14" 
+                                 hc:PasswordBoxAttach.IsMonitoring="True" VerticalAlignment="Center"></PasswordBox>
+                    <hc:SimplePanel>
+                        <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource SafeGeometry}" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle}"
+                                         Watermark="验证码" VerticalAlignment="Center"></hc:WatermarkTextBox>
+                        <Image Width="60" HorizontalAlignment="Right" Margin="0,0,0,2" Cursor="Hand" Source="pack://application:,,,/Resources/Images/vertifycode.png" Stretch="UniformToFill"/>
+                    </hc:SimplePanel>
                 </hc:UniformSpacingPanel>
                 <Button Style="{DynamicResource ButtonInfo}" 
                         Height="Auto" HorizontalAlignment="Stretch" 
