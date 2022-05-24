@@ -9,8 +9,7 @@
         ShowNonClientArea="False"
         Background="{DynamicResource DarkDefaultBrush}" ResizeMode="NoResize" 
         hc:WindowAttach.IsDragElement="True"
-        hc:BorderElement.CornerRadius="4"
-    xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
+        hc:BorderElement.CornerRadius="4">
     <hc:Window.Resources>
         <Style x:Key="WatermarkTextBoxStyle" TargetType="{x:Type hc:WatermarkTextBox}">
             <Setter Property="Background" Value="{x:Null}"/>
@@ -21,6 +20,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="hc:IconElement.Height" Value="21"/>
             <Setter Property="hc:IconElement.Width" Value="21"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type hc:WatermarkTextBox}">
@@ -51,6 +51,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="hc:IconElement.Height" Value="21"/>
             <Setter Property="hc:IconElement.Width" Value="21"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="PasswordBox">
@@ -92,14 +93,16 @@
             <UniformGrid Columns="1">
                 <TextBlock Text="G2Cy 易蜗易居" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource TextIconBrush}"></TextBlock>
                 <hc:UniformSpacingPanel Orientation="Vertical" Spacing="40">
-                    <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource UserGeometry}" Padding="6,4" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle}"
+                    <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource UserGeometry}"
+                                         Style="{DynamicResource WatermarkTextBoxStyle}"
                                          Watermark="请输入用户名" VerticalAlignment="Center"></hc:WatermarkTextBox>
-                    <PasswordBox Style="{DynamicResource PasswordBoxBaseStyle}" hc:InfoElement.TitlePlacement="Left"  hc:IconElement.Geometry="{DynamicResource LockGeometry}" 
+                    <PasswordBox Style="{DynamicResource PasswordBoxBaseStyle}" hc:InfoElement.TitlePlacement="Left"  
+                                 hc:IconElement.Geometry="{DynamicResource LockGeometry}" 
                                  hc:InfoElement.Placeholder="请输入密码" 
-                                 FontSize="14" 
                                  hc:PasswordBoxAttach.IsMonitoring="True" VerticalAlignment="Center"></PasswordBox>
                     <hc:SimplePanel>
-                        <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource SafeGeometry}" FontSize="14" Style="{DynamicResource WatermarkTextBoxStyle}"
+                        <hc:WatermarkTextBox hc:IconElement.Geometry="{DynamicResource SafeGeometry}" 
+                                         Style="{DynamicResource WatermarkTextBoxStyle}"
                                          Watermark="验证码" VerticalAlignment="Center"></hc:WatermarkTextBox>
                         <Image Width="60" HorizontalAlignment="Right" Margin="0,0,0,2" Cursor="Hand" Source="pack://application:,,,/Resources/Images/vertifycode.png" Stretch="UniformToFill"/>
                     </hc:SimplePanel>
